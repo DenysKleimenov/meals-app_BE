@@ -18,19 +18,15 @@ export class UsersService {
     return this.userModel.findAll();
   }
 
+  findOneByToken(activationToken: string) {
+    return this.userModel.findOne({ where: { activationToken } });
+  }
+
   findOneByEmail(email: string) {
     return this.userModel.findOne({ where: { email } });
   }
 
   findOneById(id: number) {
     return this.userModel.findByPk(id);
-  }
-
-  deleteUser(id: number) {
-    return this.userModel.destroy({
-      where: {
-        id,
-      },
-    });
   }
 }
