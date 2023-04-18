@@ -3,6 +3,8 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule } from '@nestjs/config';
 import { User } from './users/user.model';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
+import { CookiesModule } from './cookies/cookies.module';
 
 ConfigModule.forRoot({
   isGlobal: true,
@@ -20,6 +22,8 @@ ConfigModule.forRoot({
       models: [User],
     }),
     UsersModule,
+    AuthModule,
+    CookiesModule,
   ],
   controllers: [],
   providers: [],
